@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
+}
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+.animate-fadeInRight {
+  animation: fadeInRight 1s ease-out forwards;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
