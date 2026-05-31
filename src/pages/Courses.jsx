@@ -2,128 +2,158 @@ import { useState, useEffect, useRef } from "react";
 import bcBg from "../assets/bgimg.png";
 
 /* ─────────────────────────────────────────────
-   DATA
+   DATA  — 4 courses (client-updated)
 ───────────────────────────────────────────── */
 const courses = [
+  /* ── 1. BEGINNER LIVE ONLINE ── */
   {
     id: 1,
-    tag: "Self-Paced",
-    tagColor: "#6B7280",
-    title: "Beginner's Recorded Course",
-    subtitle: "Marathi / English",
-    price: "₹299",
-    priceNote: "One-time access",
-    highlight: false,
-    icon: "🎬",
-    shortDesc: "Learn chess at your own pace with lifetime access to recorded lessons, PDFs, and free tools.",
-    syllabus: [
-      "Introduction to chess & competitive rules",
-      "Piece movements & board setup",
-      "Chess notation (recording moves)",
-      "Basic openings",
-      "Puzzle solving – Checkmate in one",
-      "One-to-One game demonstrations",
-      "Middle game & endgame training",
-      "Game analysis techniques",
-    ],
-    extras: [
-      "Checkmate-in-one PDF",
-      "3 Free practice tools (with registration guide video)",
-      "All recording links + notes PDFs",
-      "Puzzle PDFs included",
-    ],
-    timing: "Self-paced — access after payment",
-    duration: "Lifetime access",
-    seats: null,
-    level: "Beginner",
-    levelColor: "#10B981",
-  },
-  {
-    id: 2,
-    tag: "Live Zoom",
-    tagColor: "#3B82F6",
-    title: "Live Online Beginner Batch",
-    subtitle: "Zoom Classes",
+    tag: "Live · Zoom",
+    tagColor: "#10B981",
+    category: "Beginner",
+    title: "New Beginner's Batch",
+    subtitle: "Live Online · Zoom · Mon–Fri",
     price: "₹999",
-    priceNote: "Per batch",
+    originalPrice: "₹1,200",
+    priceNote: "per batch · first 20 seats only",
     highlight: false,
-    icon: "💻",
-    shortDesc: "Zero to chess hero in 30 days. Live Zoom sessions Mon–Fri with the Reverse–Forward revision system.",
+    icon: "♟️",
+    shortDesc:
+      "Zero to chess hero in 20 sessions. Live Zoom classes Mon–Fri with the Reverse–Forward revision system designed to lock skills into long-term memory.",
     syllabus: [
-      "Chess fundamentals from scratch",
-      "Piece movements & rules",
-      "Board setup & notation",
-      "Basic openings & tactics",
-      "Puzzle solving (beginner level)",
-      "Reverse–Forward System: Learn 10 days → Revise 10 days",
-      "Practice games & live analysis",
-      "Competitive rule orientation",
+      "Day 1 — Rules, piece movements & chess notation",
+      "Day 2 — Advanced notation practice",
+      "Day 3 — Checkmate, Stalemate, En-passant & Castling",
+      "Day 4 — Live gameplay session",
+      "Day 5 — Online tournament (practice)",
+      "Day 6 & 7 — Tactics Part 1 & 2",
+      "Day 8 — Endgame techniques",
+      "Day 9 — Revision",
+      "Day 10 — Blindfold Chess Demo",
+      "Days 11–20 — Special Reverse–Forward revision of full course",
     ],
     extras: [
-      "Live doubt-clearing in class",
-      "Revision module included",
+      "Total 20 live class sessions",
       "Suitable for school students & working professionals",
+      "Reverse–Forward System: learn 10 days → revise 10 days",
+      "Chess notation skill building — read & write every move",
+      "Online tournament participation included",
     ],
     timing: "Batch 1: 8:00–9:00 PM  |  Batch 2: 9:30–10:30 PM\nMon – Fri",
-    duration: "10 Nov – 5 Dec (approx. 30 days)",
-    seats: "Limited",
+    duration: "8 June – 3 July (20 sessions)",
+    seats: "First 20 seats only",
     level: "Beginner",
     levelColor: "#10B981",
   },
+
+  /* ── 2. INTERMEDIATE ── */
   {
-    id: 3,
-    tag: "Online Masterclass",
-    tagColor: "#8B5CF6",
-    title: "Online Chess Masterclass",
-    subtitle: "Beginner to Advanced · Marathi",
-    price: "₹699",
-    priceNote: "Per batch",
+    id: 2,
+    tag: "Intermediate",
+    tagColor: "#3B82F6",
+    category: "Intermediate",
+    title: "Intermediate Chess Training",
+    subtitle: "Live Online · Winning Thinking",
+    price: "Ask on WhatsApp",
+    originalPrice: null,
+    priceNote: "monthly / 3-month package",
     highlight: false,
-    icon: "⭐",
-    shortDesc: "Structured Marathi-medium coaching designed to take students from basics to FIDE-rated competition.",
+    icon: "🧠",
+    shortDesc:
+      "Beginner level complete? Now develop real Winning Thinking — openings, tactics, middlegame strategy, and tournament mindset for competitive play.",
     syllabus: [
-      "Rapid Learning System for beginners",
-      "Advanced openings & repertoire building",
-      "Middle game strategy & planning",
-      "Endgame technique (King & pawn, Rook endings)",
-      "Puzzle training across all game phases",
-      "Game analysis – how to learn from losses",
-      "Zonal, State & National tournament preparation",
-      "FIDE rating process guidance",
+      "Strong opening ideas & planning",
+      "Tactical thinking & calculation training",
+      "Middlegame strategies & positional understanding",
+      "Endgame improvement techniques",
+      "Tournament mindset development",
+      "Real game analysis & mistake correction",
+      "Phase-wise puzzle solving practice",
     ],
     extras: [
-      "Expert coaching (international-level trainer)",
-      "Competitive & career pathway guidance",
-      "Suitable for 8+ age group",
+      "2 LIVE training classes per week",
+      "3 practice tournaments per week",
+      "One fee — 2 batches benefit (recordings included)",
+      "Advanced class recordings for extra study",
+      "Live Sessions + Self Study + Practical Play balance",
+      "Beginner students get FIRST priority",
     ],
-    timing: "Batches announced on enrollment",
-    duration: "Ongoing",
-    seats: null,
-    level: "Beginner – Advanced",
-    levelColor: "#F59E0B",
+    timing: "Wed & Thu — Batch 1: 8:00–9:00 PM  |  Batch 2: 9:30–10:30 PM",
+    duration: "Monthly rolling batches",
+    seats: "Limited",
+    level: "Intermediate",
+    levelColor: "#3B82F6",
   },
+
+  /* ── 3. ADVANCED ── */
+  {
+    id: 3,
+    tag: "Advanced",
+    tagColor: "#8B5CF6",
+    category: "Advanced",
+    title: "Master Chess — Advanced Batch",
+    subtitle: "Tournament Preparation · Serious Players",
+    price: "₹1,399",
+    originalPrice: null,
+    priceNote: "monthly  ·  ₹3,599 for 3 months (save ₹600)",
+    highlight: true,
+    icon: "🏆",
+    shortDesc:
+      "Intermediate complete? Start REAL tournament improvement. Advanced batch with double-benefit access — Intermediate + Advanced classes in one fee.",
+    syllabus: [
+      "Tournament level thinking development",
+      "Opening repertoire building (advanced)",
+      "Middlegame strategy & long-term planning",
+      "Endgame technique — King & pawn, Rook endings",
+      "Positional play & strategic decision-making",
+      "Psychological preparation for OTB & online events",
+      "Time management in tournament games",
+      "Personalised game analysis & mistake correction",
+    ],
+    extras: [
+      "DOUBLE BENEFIT — Advanced + Intermediate LIVE classes in one fee",
+      "Weekly 4 LIVE classes + 3 online practice tournaments",
+      "Both batch recordings available for study",
+      "Complete tournament preparation support system",
+      "Regular homework + analysis + practical guidance",
+      "For serious & committed players only",
+    ],
+    timing:
+      "Sat & Sun — Batch 1: 7:00–8:30 PM  |  Batch 2: 9:00–10:30 PM\nPractice Tournaments: Tue 8 PM · Fri 9 PM · Sun 3 PM",
+    duration: "Monthly rolling · 3-month package available",
+    seats: null,
+    level: "Advanced",
+    levelColor: "#8B5CF6",
+  },
+
+  /* ── 4. OFFLINE RAVET ── */
   {
     id: 4,
     tag: "Offline · Ravet",
     tagColor: "#EF4444",
+    category: "Offline",
     title: "Offline Chess Classes",
     subtitle: "Sapiens School, Ravet · Age 4–15",
-    price: "₹1,300",
-    priceNote: "Enquire for full fee",
+    price: "₹1,800",
+    originalPrice: null,
+    priceNote: "monthly · ₹4,999 for 3 months (save ₹400)",
     highlight: false,
     icon: "🏫",
-    shortDesc: "Weekend in-person coaching at Sapiens School of Learning, SB Patil College Road, Ravet.",
+    shortDesc:
+      "Weekend in-person coaching at Sapiens School of Learning, SB Patil College Road, Ravet. Beginner to Advanced — all levels welcome.",
     syllabus: [
-      "Beginners Level: rules, piece movement, simple tactics",
-      "Intermediate–Advanced: opening prep, middle game, endgame",
-      "Tournament preparation & game analysis",
-      "Fun learning approach for young students (age 4+)",
-      "Marathi, Hindi & English medium available",
+      "Beginners: rules, piece movement, board setup & simple tactics",
+      "Intermediate: opening prep, tactical training & middlegame",
+      "Advanced: strategy, endgame & tournament preparation",
+      "Fun & engaging learning approach for young students (age 4+)",
+      "Game analysis & mistake correction every session",
     ],
     extras: [
-      "Beginners Monthly: ₹1,500  |  3-Month: ₹4,000 (save ₹500)",
-      "Intermediate+Advanced Monthly: ₹1,800  |  3-Month: ₹5,000 (save ₹400)",
-      "Location: Bhalchandra Prospero Society, Near Bhondve Baug",
+      "Beginners — Monthly: ₹1,800  |  3-Month: ₹4,999 (save ₹400)",
+      "Intermediate+Advanced — ask on WhatsApp for pricing",
+      "FREE Online Chess Classes included (worth ₹1,000/month) for Beginners",
+      "Languages: Marathi · Hindi · English",
+      "Venue: Bhalchandra Prospero Society, Near Bhondve Baug, SB Patil College Road, Ravet",
     ],
     timing: "Sat & Sun — 11:00 AM–12:00 PM  OR  12:00 PM–1:00 PM",
     duration: "Monthly rolling batches",
@@ -131,39 +161,10 @@ const courses = [
     level: "Beginner – Advanced",
     levelColor: "#F59E0B",
   },
-  {
-    id: 5,
-    tag: "Elite Batch",
-    tagColor: "#D97706",
-    title: "SUPER ADVANCE — Tournament Batch",
-    subtitle: "For Rated & Competitive Players",
-    price: "₹1,999",
-    priceNote: "Per batch · Only 5 seats",
-    highlight: true,
-    icon: "🏆",
-    shortDesc: "Exclusive 5-student intensive batch with Coach Pravin Mane. Deep preparation for serious tournament players.",
-    syllabus: [
-      "Deep game preparation & opening repertoire (advanced)",
-      "Tournament mindset & long-thinking development",
-      "Advanced puzzle training — Opening, Middle Game, Endgame",
-      "Positional play & strategic planning",
-      "Time management in OTB & online tournaments",
-      "Personalised game analysis session per student",
-      "Psychological preparation for competitive chess",
-    ],
-    extras: [
-      "Personal coaching by Coach Pravin Mane",
-      "Only 5 students per batch — maximum individual attention",
-      "2.5-hour intensive sessions (with break if needed)",
-      "For rated & competitively active players only",
-    ],
-    timing: "Mon & Tue — 8:00 PM–10:30 PM",
-    duration: "3 Nov – 3 Dec",
-    seats: "Only 5 seats",
-    level: "Tournament",
-    levelColor: "#EF4444",
-  },
 ];
+
+/* category config for filter tabs */
+const CATEGORIES = ["All", "Beginner", "Intermediate", "Advanced", "Offline"];
 
 const benefits = [
   { icon: "🧠", title: "IQ & Memory Boost", desc: "Studies show chess players develop stronger working memory and spatial reasoning—skills that transfer directly to academics." },
@@ -393,9 +394,12 @@ function Modal({ course, onClose }) {
           </div>
 
           <div className="flex items-center flex-wrap gap-3 mt-3">
-            <div>
+            <div className="flex items-baseline gap-2">
               <span className="text-2xl font-bold text-gray-900">{course.price}</span>
-              <span className="text-xs text-gray-400 ml-1">{course.priceNote}</span>
+              {course.originalPrice && (
+                <span className="text-sm text-gray-400 line-through">{course.originalPrice}</span>
+              )}
+              <span className="text-xs text-gray-400">{course.priceNote}</span>
             </div>
             <span className="text-xs font-semibold px-2.5 py-1 rounded-full" style={{ background: course.levelColor + "18", color: course.levelColor }}>
               {course.level}
@@ -468,49 +472,98 @@ function Modal({ course, onClose }) {
 }
 
 /* ─────────────────────────────────────────────
-   COURSE CARD
+   COURSE CARD  — updated with category badge + strikethrough price
 ───────────────────────────────────────────── */
+const LEVEL_META = {
+  Beginner:     { bg: "#DCFCE7", text: "#15803D", border: "#86EFAC" },
+  Intermediate: { bg: "#DBEAFE", text: "#1D4ED8", border: "#93C5FD" },
+  Advanced:     { bg: "#EDE9FE", text: "#6D28D9", border: "#C4B5FD" },
+  Offline:      { bg: "#FEE2E2", text: "#B91C1C", border: "#FCA5A5" },
+};
+
 function CourseCard({ course, onClick }) {
+  const meta = LEVEL_META[course.category] || LEVEL_META.Beginner;
+
   return (
     <div
       className="relative flex flex-col bg-white rounded-3xl border overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-xl cursor-pointer group h-full"
       style={
         course.highlight
-          ? { borderColor: "#FCD34D", boxShadow: "0 4px 24px #FCD34D40" }
+          ? { borderColor: "#A78BFA", boxShadow: "0 4px 24px #A78BFA40" }
           : { borderColor: "#E5E7EB", boxShadow: "0 2px 12px rgba(0,0,0,0.06)" }
       }
       onClick={onClick}
     >
+      {/* top accent bar */}
+      <div
+        className="h-1 w-full rounded-t-3xl"
+        style={{ background: course.tagColor }}
+      />
+
       {course.highlight && (
-        <div className="absolute top-0 left-0 right-0 h-1 rounded-t-3xl" style={{ background: "linear-gradient(90deg,#F59E0B,#FCD34D,#F59E0B)" }} />
+        <div
+          className="absolute top-3 right-3 text-xs font-bold px-2.5 py-1 rounded-full z-10"
+          style={{ background: "#EDE9FE", color: "#6D28D9", border: "1px solid #C4B5FD" }}
+        >
+          ⭐ Popular
+        </div>
       )}
 
-      <div className="px-5 pt-5 pb-4 flex-1">
-        <div className="flex items-start justify-between mb-3">
-          <span className="text-xs font-semibold px-2.5 py-1 rounded-full" style={{ background: course.tagColor + "15", color: course.tagColor }}>
-            {course.tag}
+      <div className="px-5 pt-4 pb-4 flex-1">
+        {/* category pill + icon */}
+        <div className="flex items-center justify-between mb-3">
+          <span
+            className="text-xs font-semibold px-3 py-1 rounded-full border"
+            style={{ background: meta.bg, color: meta.text, borderColor: meta.border }}
+          >
+            {course.category}
           </span>
           <span className="text-2xl">{course.icon}</span>
         </div>
+
+        {/* tag badge */}
+        <span
+          className="inline-block text-xs font-semibold px-2 py-0.5 rounded-md mb-2"
+          style={{ background: course.tagColor + "15", color: course.tagColor }}
+        >
+          {course.tag}
+        </span>
+
         <h3 className="text-base font-bold text-gray-900 leading-snug mb-0.5">{course.title}</h3>
         <p className="text-xs text-gray-400 mb-3">{course.subtitle}</p>
         <div className="w-8 h-0.5 rounded-full mb-3" style={{ background: course.tagColor }} />
-        <p className="text-sm text-gray-500 leading-relaxed">{course.shortDesc}</p>
+        <p className="text-sm text-gray-500 leading-relaxed line-clamp-3">{course.shortDesc}</p>
+
+        {/* highlights row */}
+        <div className="mt-3 flex flex-wrap gap-1.5">
+          {course.seats && (
+            <span className="text-xs bg-red-50 text-red-600 border border-red-100 px-2 py-0.5 rounded-full font-medium">
+              ⚠ {course.seats}
+            </span>
+          )}
+          <span className="text-xs bg-gray-50 text-gray-500 border border-gray-100 px-2 py-0.5 rounded-full">
+            {course.level}
+          </span>
+        </div>
       </div>
 
       <div className="mx-5 border-t border-gray-100" />
 
-      <div className="px-5 py-4 flex items-center justify-between">
+      <div className="px-5 py-4 flex items-center justify-between gap-2">
         <div>
-          <span className="text-xl font-bold text-gray-900">{course.price}</span>
-          <span className="text-xs text-gray-400 ml-1">{course.priceNote}</span>
-          {course.seats && <p className="text-xs text-red-500 font-medium mt-0.5">⚠ {course.seats}</p>}
+          <div className="flex items-baseline gap-1.5">
+            <span className="text-xl font-bold text-gray-900">{course.price}</span>
+            {course.originalPrice && (
+              <span className="text-xs text-gray-400 line-through">{course.originalPrice}</span>
+            )}
+          </div>
+          <p className="text-xs text-gray-400 mt-0.5">{course.priceNote}</p>
         </div>
         <button
-          className="flex items-center gap-1.5 text-sm font-semibold px-4 py-2 rounded-xl transition-all duration-200 group-hover:gap-2.5"
+          className="flex items-center gap-1.5 text-sm font-semibold px-4 py-2 rounded-xl transition-all duration-200 group-hover:gap-2.5 whitespace-nowrap flex-shrink-0"
           style={{ background: "#DCFCE7", color: "#15803D" }}
         >
-          View Details
+          Details
           <span className="transition-transform duration-200 group-hover:translate-x-0.5">→</span>
         </button>
       </div>
@@ -583,6 +636,11 @@ function SectionLabel({ children }) {
 ───────────────────────────────────────────── */
 export default function Courses() {
   const [selectedCourse, setSelectedCourse] = useState(null);
+  const [activeCategory, setActiveCategory] = useState("All");
+
+  const filtered = activeCategory === "All"
+    ? courses
+    : courses.filter((c) => c.category === activeCategory);
 
   return (
     <>
@@ -601,21 +659,19 @@ export default function Courses() {
         .delay-200 { animation-delay: 0.2s; }
         .delay-300 { animation-delay: 0.3s; }
 
-              .hero-section {
+        .hero-section {
           background-size: cover;
           background-position: center;
           background-repeat: no-repeat;
           position: relative;
           width: 100%;
         }
-        /* Beige overlay at 82% opacity keeps bg visible but ensures text is crisp */
         .hero-overlay {
           position: absolute;
           inset: 0;
           background: rgba(245, 243, 238, 0.82);
         }
 
-        /* Piece card grid: 3 cols on tablet+, 2 cols on mobile */
         .pieces-grid {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
@@ -627,31 +683,73 @@ export default function Courses() {
         @media (max-width: 480px) {
           .pieces-grid { grid-template-columns: repeat(2, 1fr); }
         }
+
+        /* filter tab scroll on mobile */
+        .filter-tabs {
+          display: flex;
+          gap: 8px;
+          overflow-x: auto;
+          padding-bottom: 4px;
+          scrollbar-width: none;
+        }
+        .filter-tabs::-webkit-scrollbar { display: none; }
+        .filter-tab {
+          flex-shrink: 0;
+          padding: 7px 18px;
+          border-radius: 999px;
+          font-size: 13px;
+          font-weight: 500;
+          cursor: pointer;
+          border: 1.5px solid #E5E7EB;
+          background: white;
+          color: #6B7280;
+          transition: all 0.2s;
+          white-space: nowrap;
+        }
+        .filter-tab:hover { border-color: #16A34A; color: #15803D; }
+        .filter-tab.active {
+          background: #14532D;
+          border-color: #14532D;
+          color: white;
+        }
+
+        /* course grid — 1 col mobile, 2 col tablet, 2 col desktop (4 cards) */
+        .courses-grid {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+        @media (min-width: 640px) {
+          .courses-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        .line-clamp-3 {
+          display: -webkit-box;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+        }
       `}</style>
 
       <div className="courses-page min-h-screen" style={{ background: "#F5F3EE" }}>
 
         {/* ══════════════════════════════════════
             HERO
-            pt-28 = 7rem ≈ 112px clears a standard 64–72px fixed Navbar
-            on smaller screens pt-24 (96px) is also safe
         ══════════════════════════════════════ */}
-       <section 
-            className="hero-section" 
-            style={{ backgroundImage: `url(${bcBg})` }}
-          >
-            <div className="hero-overlay" />
-
-            {/* Subtle chess grid watermark on top of overlay */}
-            <div
-              className="absolute inset-0 pointer-events-none"
-              style={{ 
-                opacity: 0.035, 
-                backgroundImage: "repeating-conic-gradient(#1a1a1a 0% 25%, transparent 0% 50%)", 
-                backgroundSize: "38px 38px", 
-                zIndex: 1 
-              }}
-            />
+        <section
+          className="hero-section"
+          style={{ backgroundImage: `url(${bcBg})` }}
+        >
+          <div className="hero-overlay" />
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              opacity: 0.035,
+              backgroundImage: "repeating-conic-gradient(#1a1a1a 0% 25%, transparent 0% 50%)",
+              backgroundSize: "38px 38px",
+              zIndex: 1
+            }}
+          />
           <div className="relative z-10 max-w-3xl mx-auto px-5 pt-28 sm:pt-32 pb-20 text-center">
             <div className="animate-fadeInUp">
               <SectionLabel>♟ Creator Chess Academy</SectionLabel>
@@ -666,9 +764,8 @@ export default function Courses() {
               <p className="text-sm text-gray-400 italic mb-10">Taught in Marathi · Hindi · English</p>
             </div>
 
-            {/* Stats */}
             <div className="animate-fadeInUp delay-200 grid grid-cols-3 gap-3 max-w-xs mx-auto mb-8">
-              {[{ num: "5+", label: "Courses" }, { num: "500+", label: "Students" }, { num: "10+", label: "Tournaments" }].map((s, i) => (
+              {[{ num: "4+", label: "Courses" }, { num: "500+", label: "Students" }, { num: "10+", label: "Tournaments" }].map((s, i) => (
                 <div key={i} className="bg-white rounded-2xl py-3.5 px-2 border border-gray-100 text-center" style={{ boxShadow: "0 2px 12px rgba(0,0,0,0.07)" }}>
                   <p className="display-font text-2xl font-bold text-gray-900">{s.num}</p>
                   <p className="text-xs text-gray-400 mt-0.5">{s.label}</p>
@@ -676,7 +773,6 @@ export default function Courses() {
               ))}
             </div>
 
-            {/* CTA row */}
             <div className="animate-fadeInUp delay-300 flex items-center justify-center flex-wrap gap-3">
               <a href="#courses" className="inline-flex items-center gap-2 text-sm font-semibold px-6 py-3 rounded-2xl text-white transition-all hover:opacity-90 active:scale-95" style={{ background: "#16A34A" }}>
                 View All Courses →
@@ -689,7 +785,7 @@ export default function Courses() {
         </section>
 
         {/* ══════════════════════════════════════
-            CHESS BASICS — Know Your Pieces
+            CHESS BASICS
         ══════════════════════════════════════ */}
         <section className="px-5 py-16" style={{ background: "#F5F3EE" }}>
           <div className="max-w-5xl mx-auto">
@@ -709,7 +805,6 @@ export default function Courses() {
               ))}
             </div>
 
-            {/* Fun fact strip */}
             <FadeSection delay={300}>
               <div
                 className="mt-8 rounded-2xl px-6 py-5 flex flex-col sm:flex-row items-start sm:items-center gap-4 border"
@@ -795,23 +890,76 @@ export default function Courses() {
         </section>
 
         {/* ══════════════════════════════════════
-            COURSES
+            COURSES  ← fully replaced section
         ══════════════════════════════════════ */}
         <section className="px-5 py-16" style={{ background: "#F5F3EE" }} id="courses">
           <div className="max-w-5xl mx-auto">
-            <FadeSection className="text-center mb-10">
+
+            {/* heading */}
+            <FadeSection className="text-center mb-8">
               <SectionLabel>Enrol Now</SectionLabel>
               <h2 className="display-font text-4xl font-bold text-gray-900 mb-2">Choose Your Course</h2>
-              <p className="text-gray-400 text-sm">From complete beginner to tournament champion — we have a batch for every level</p>
+              <p className="text-gray-400 text-sm max-w-md mx-auto">
+                From complete beginner to tournament champion — a batch for every level, online &amp; offline.
+              </p>
             </FadeSection>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-              {courses.map((c, i) => (
+            {/* category filter tabs */}
+            <FadeSection delay={80} className="mb-8">
+              <div className="filter-tabs justify-center">
+                {CATEGORIES.map((cat) => (
+                  <button
+                    key={cat}
+                    className={`filter-tab${activeCategory === cat ? " active" : ""}`}
+                    onClick={() => setActiveCategory(cat)}
+                  >
+                    {cat === "All" && "All Courses"}
+                    {cat === "Beginner" && "♟ Beginner"}
+                    {cat === "Intermediate" && "🧠 Intermediate"}
+                    {cat === "Advanced" && "🏆 Advanced"}
+                    {cat === "Offline" && "🏫 Offline"}
+                  </button>
+                ))}
+              </div>
+            </FadeSection>
+
+            {/* course cards grid */}
+            <div className="courses-grid">
+              {filtered.map((c, i) => (
                 <FadeSection key={c.id} delay={i * 80} className="flex flex-col">
                   <CourseCard course={c} onClick={() => setSelectedCourse(c)} />
                 </FadeSection>
               ))}
             </div>
+
+            {/* bottom nudge strip */}
+            <FadeSection delay={200} className="mt-10">
+              <div
+                className="rounded-2xl px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-4 border"
+                style={{ background: "#DCFCE7", borderColor: "#86EFAC" }}
+              >
+                <div>
+                  <p className="text-sm font-bold text-green-800 mb-0.5">Not sure which batch suits you?</p>
+                  <p className="text-sm text-green-700">
+                    Chat with Coach Pravin on WhatsApp — free guidance, no commitment.
+                  </p>
+                </div>
+                <a
+                  href="https://wa.me/919028447116"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center gap-2 text-sm font-semibold px-5 py-2.5 rounded-xl text-white flex-shrink-0 transition-all hover:opacity-90 active:scale-95"
+                  style={{ background: "#16A34A" }}
+                >
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="white">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+                    <path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.558 4.116 1.535 5.845L.057 23.928a.75.75 0 00.915.915l6.083-1.478A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.75 9.75 0 01-4.97-1.364l-.356-.213-3.694.897.91-3.594-.232-.369A9.75 9.75 0 112.25 12 9.76 9.76 0 0112 21.75z"/>
+                  </svg>
+                  Ask on WhatsApp
+                </a>
+              </div>
+            </FadeSection>
+
           </div>
         </section>
 
@@ -835,7 +983,7 @@ export default function Courses() {
                     Book a free 15-minute demo call with Coach Pravin and we'll find the perfect batch for your child.
                   </p>
                   <a
-                    href="https://wa.me/"
+                    href="https://wa.me/919028447116"
                     target="_blank"
                     rel="noreferrer"
                     className="inline-flex items-center gap-2 bg-white text-green-800 font-bold text-sm px-7 py-3.5 rounded-2xl hover:bg-green-50 transition-colors duration-200 active:scale-95"

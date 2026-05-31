@@ -46,83 +46,98 @@ const whyChess = [
   { icon: "📈", title: "Academic Performance", desc: "Chess players consistently show improvement in maths, reading, and problem solving." },
 ];
 
+/* ─── UPDATED PRICING DATA ─── */
 const pricing = [
   {
-    name: "Beginner's Recorded Course",
-    nameHi: "नवशिक्यांना रेकॉर्डेड कोर्स",
-    price: "₹299",
-    tag: "Best Value",
-    tagColor: "#166534",
-    tagBg: "#dcfce7",
-    features: ["Self-paced video lessons", "Basics of chess", "Perfect for absolute beginners"],
-    accent: "#16a34a",
-    featured: false,
-  },
-  {
-    name: "Beginner Online Chess Class",
-    nameHi: "बुद्धिबळ ऑनलाईन कोर्स",
+    id: 1,
+    badge: "Limited Seats",
+    badgeBg: "#fef3c7",
+    badgeColor: "#92400e",
+    name: "Beginner's Online Batch",
+    nameHi: "नवीन बॅच – ZOOM वर Live",
     price: "₹999",
-    tag: "Popular",
-    tagColor: "#1e40af",
-    tagBg: "#dbeafe",
-    features: ["Live online sessions", "Beginner to basics", "Interactive Q&A"],
+    priceNote: "फक्त पहिल्या 20 जणांसाठी",
+    originalPrice: "₹1,200",
     accent: "#2563eb",
     featured: false,
+    tag: "Starting June 8",
+    features: [
+      "20 Live Sessions on Zoom (Mon–Fri)",
+      "Batch 1: 8–9 PM  |  Batch 2: 9:30–10:30 PM",
+      "Rules, Tactics, Endgame & Live Tournaments",
+      "Special Reverse-Forward Revision System",
+      "For students & working professionals",
+    ],
+    cta: "Register Now",
   },
   {
-    name: "Online Master Class – Beginner",
-    nameHi: "नवशिक्यांना ऑनलाईन मास्टर क्लास",
-    price: "₹699",
-    tag: "",
-    tagColor: "",
-    tagBg: "",
-    features: ["Expert-led sessions", "Foundational strategies", "Game analysis included"],
-    accent: "#7c3aed",
-    featured: false,
-  },
-  {
-    name: "Offline Chess Class",
-    nameHi: "Ravet, Pimpri-Chinchwad",
-    price: "₹1,300",
-    tag: "⭐ Most Popular",
-    tagColor: "#92400e",
-    tagBg: "#fef3c7",
-    features: ["In-person coaching", "Kids aged 4–15 & Adults", "Ravet, Pune location"],
-    accent: "#d97706",
-    featured: true,
-  },
-  {
-    name: "Intermediate / Advanced Recorded",
-    nameHi: "रेकॉर्डेड कोर्स",
-    price: "₹999",
-    tag: "",
-    tagColor: "",
-    tagBg: "",
-    features: ["Advanced video content", "Opening & endgame theory", "Lifetime access"],
-    accent: "#0891b2",
-    featured: false,
-  },
-  {
-    name: "Online Master Class – Advanced",
-    nameHi: "ऑनलाईन मास्टर क्लास अड्वैन्स",
-    price: "₹1,199",
-    tag: "",
-    tagColor: "",
-    tagBg: "",
-    features: ["Live advanced coaching", "Tournament prep", "Deep game analysis"],
+    id: 2,
+    badge: "Most Popular",
+    badgeBg: "#dcfce7",
+    badgeColor: "#166534",
+    name: "Intermediate Online Class",
+    nameHi: "मास्टर चेस – इंटरमिडिएट बॅच",
+    price: "₹1,399",
+    priceNote: "per month",
+    originalPrice: null,
     accent: "#16a34a",
-    featured: false,
+    featured: true,
+    tag: "₹3,599 for 3 months (save ₹600)",
+    features: [
+      "2 Live Training Classes per week",
+      "3 Practice Tournaments per week",
+      "Openings, Middlegame & Endgame coaching",
+      "Real Game Analysis & Mistake Correction",
+      "Tactical Puzzles + Tournament Mindset",
+      "Access to Advanced batch recordings",
+    ],
+    cta: "Enroll Now",
   },
   {
-    name: "Super Advance – Tournament Batch",
-    nameHi: "Tournament Players Batch",
-    price: "₹1,999",
-    tag: "🔥 Elite",
-    tagColor: "#991b1b",
-    tagBg: "#fee2e2",
-    features: ["Exclusive tournament training", "Rating improvement focus", "1-on-1 analysis sessions"],
+    id: 3,
+    badge: "Elite",
+    badgeBg: "#fee2e2",
+    badgeColor: "#991b1b",
+    name: "Advanced Online Class",
+    nameHi: "मास्टर चेस – अड्वान्स बॅच",
+    price: "₹1,399",
+    priceNote: "per month",
+    originalPrice: null,
     accent: "#dc2626",
     featured: false,
+    tag: "₹3,599 for 3 months (save ₹600)",
+    features: [
+      "Sat–Sun Live Classes (7–8:30 PM / 9–10:30 PM)",
+      "3 Weekly Online Practice Tournaments",
+      "Intermediate batch access included",
+      "Tournament-level strategy & game analysis",
+      "Opening, Middlegame & Endgame mastery",
+      "For serious & competitive players only",
+    ],
+    cta: "Enroll Now",
+  },
+  {
+    id: 4,
+    badge: "⭐ Offline – Ravet",
+    badgeBg: "#fef9c3",
+    badgeColor: "#713f12",
+    name: "Offline Chess Class",
+    nameHi: "Sapiens School, Ravet, Pune",
+    price: "₹1,800",
+    priceNote: "per month",
+    originalPrice: null,
+    accent: "#d97706",
+    featured: false,
+    tag: "₹4,999 for 3 months (save ₹400)",
+    features: [
+      "Weekend Batches – Saturday & Sunday",
+      "Batch 1: 11AM–12PM  |  Batch 2: 12–1PM",
+      "Age Group: 4 to 15 Years",
+      "Marathi, Hindi & English medium",
+      "FREE Online Classes included (worth ₹1,000/month)",
+      "In-person coaching at Sapiens School, Ravet",
+    ],
+    cta: "Join Offline Batch",
   },
 ];
 
@@ -334,9 +349,11 @@ const About = () => {
       </div>
 
 
-      {/* ══ 5. PRICING ══ */}
+      {/* ══ 5. PRICING (UPDATED) ══ */}
       <div className="bg-gray-50 py-24 px-6 md:px-16">
         <div className="max-w-7xl mx-auto">
+
+          {/* Heading */}
           <div className="text-center mb-14">
             <span className="inline-block bg-green-100 text-green-700 px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase mb-4">
               Pricing
@@ -345,55 +362,93 @@ const About = () => {
               Programs & <span className="text-green-600">Fees</span>
             </h2>
             <p className="text-gray-500 mt-3 text-base md:text-lg">
-              Affordable chess training for every level — beginner to tournament player.
+              From beginner to tournament player — choose the right batch for you.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-            {pricing.map(p => (
-              <div key={p.name}
-                className={`bg-white rounded-3xl p-6 flex flex-col border transition duration-300 hover:shadow-xl hover:-translate-y-1 ${p.featured ? "border-2" : "border-gray-100"}`}
-                style={p.featured ? { borderColor: p.accent } : {}}>
+          {/* Cards Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
+            {pricing.map((p) => (
+              <div
+                key={p.id}
+                className={`bg-white rounded-3xl flex flex-col overflow-hidden transition duration-300 hover:shadow-2xl hover:-translate-y-1 ${
+                  p.featured
+                    ? "border-2 shadow-lg"
+                    : "border border-gray-100"
+                }`}
+                style={p.featured ? { borderColor: p.accent } : {}}
+              >
+                {/* Top accent bar */}
+                <div className="h-1.5 w-full" style={{ background: p.accent }} />
 
-                {p.featured && p.tag && (
-                  <div className="w-full text-center mb-3">
-                    <span className="text-xs font-bold px-3 py-1 rounded-full"
-                      style={{ background: p.tagBg, color: p.tagColor }}>
-                      {p.tag}
-                    </span>
-                  </div>
-                )}
+                <div className="p-6 flex flex-col flex-1">
 
-                <div className="flex items-start justify-between mb-3">
-                  <div className="w-10 h-10 rounded-xl flex items-center justify-center text-xl flex-shrink-0"
-                    style={{ background: `${p.accent}18` }}>
-                    ♟️
-                  </div>
-                  {p.tag && !p.featured && (
-                    <span className="text-xs font-bold px-2.5 py-1 rounded-full"
-                      style={{ background: p.tagBg, color: p.tagColor }}>
-                      {p.tag}
+                  {/* Badge */}
+                  <span
+                    className="self-start text-[10px] font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-4"
+                    style={{ background: p.badgeBg, color: p.badgeColor }}
+                  >
+                    {p.badge}
+                  </span>
+
+                  {/* Course name */}
+                  <h3 className="font-extrabold text-gray-900 text-base leading-snug mb-1">
+                    {p.name}
+                  </h3>
+                  <p className="text-xs text-gray-400 mb-5">{p.nameHi}</p>
+
+                  {/* Price */}
+                  <div className="flex items-baseline gap-2 mb-1">
+                    <span className="text-3xl font-extrabold" style={{ color: p.accent }}>
+                      {p.price}
                     </span>
+                    {p.originalPrice && (
+                      <span className="text-sm text-gray-400 line-through">{p.originalPrice}</span>
+                    )}
+                  </div>
+                  <p className="text-xs text-gray-400 mb-2">{p.priceNote}</p>
+
+                  {/* 3-month offer tag */}
+                  {p.tag && (
+                    <div
+                      className="text-[11px] font-semibold px-3 py-1.5 rounded-xl mb-5 w-fit"
+                      style={{ background: `${p.accent}12`, color: p.accent }}
+                    >
+                      {p.tag}
+                    </div>
                   )}
+
+                  {/* Divider */}
+                  <div className="border-t border-gray-100 mb-5" />
+
+                  {/* Features */}
+                  <ul className="flex-1 space-y-2.5 mb-6">
+                    {p.features.map((f) => (
+                      <li key={f} className="flex items-start gap-2 text-xs text-gray-600 leading-relaxed">
+                        <span
+                          className="mt-0.5 flex-shrink-0 w-4 h-4 rounded-full flex items-center justify-center text-white text-[10px] font-bold"
+                          style={{ background: p.accent }}
+                        >
+                          ✓
+                        </span>
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
+
+                  {/* CTA */}
+                  <button
+                    onClick={() => setPopup("enroll")}
+                    className="w-full py-3 rounded-2xl text-sm font-bold transition hover:opacity-90 hover:scale-[1.02] active:scale-95"
+                    style={
+                      p.featured
+                        ? { background: p.accent, color: "#fff" }
+                        : { background: `${p.accent}15`, color: p.accent }
+                    }
+                  >
+                    {p.cta} →
+                  </button>
                 </div>
-
-                <p className="font-extrabold text-gray-900 text-sm leading-snug mb-1">{p.name}</p>
-                <p className="text-xs text-gray-400 mb-4">{p.nameHi}</p>
-                <p className="text-3xl font-extrabold mb-4" style={{ color: p.accent }}>{p.price}</p>
-
-                <ul className="flex-1 space-y-2 mb-5">
-                  {p.features.map(f => (
-                    <li key={f} className="flex items-start gap-2 text-xs text-gray-600">
-                      <span className="text-green-500 mt-0.5 flex-shrink-0">✓</span>{f}
-                    </li>
-                  ))}
-                </ul>
-
-                <button onClick={() => setPopup("enroll")}
-                  className="w-full py-2.5 rounded-xl text-xs font-bold transition hover:opacity-90"
-                  style={{ background: `${p.accent}15`, color: p.accent }}>
-                  Enroll Now →
-                </button>
               </div>
             ))}
           </div>

@@ -5,10 +5,10 @@ import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
-  const location = useLocation(); 
+  const location = useLocation();
 
   const menuItems = [
-    { name: "Home", path: "/" }, 
+    { name: "Home", path: "/" },
     { name: "About", path: "/about" },
     { name: "Courses", path: "/courses" },
     { name: "Gallery", path: "/gallery" },
@@ -35,24 +35,40 @@ const Navbar = () => {
             </div>
           </div>
 
-          {/* 🔹 Desktop Menu */}
-          <ul className="hidden md:flex gap-4 bg-gray-100 px-4 py-2 rounded-full shadow-sm">
+          {/* 🔹 Desktop Menu + Login */}
+          <div className="hidden md:flex items-center gap-4">
 
-            {menuItems.map((item) => (
-              <Link to={item.path} key={item.name}>
-                <li
-                  className={`px-4 py-1 rounded-full cursor-pointer transition duration-300 ${
-                    location.pathname === item.path
-                      ? "bg-green-500 text-white shadow" // ✅ ACTIVE
-                      : "hover:bg-green-100 hover:text-green-600"
-                  }`}
-                >
-                  {item.name}
-                </li>
-              </Link>
-            ))}
+            <ul className="flex gap-4 bg-gray-100 px-4 py-2 rounded-full shadow-sm">
+              {menuItems.map((item) => (
+                <Link to={item.path} key={item.name}>
+                  <li
+                    className={`px-4 py-1 rounded-full cursor-pointer transition duration-300 ${
+                      location.pathname === item.path
+                        ? "bg-green-500 text-white shadow"
+                        : "hover:bg-green-100 hover:text-green-600"
+                    }`}
+                  >
+                    {item.name}
+                  </li>
+                </Link>
+              ))}
+            </ul>
 
-          </ul>
+            {/* 🔐 Student Login Button — Desktop */}
+            <a
+              href="https://learn.creatorchessacademy.com/login"
+              target="_blank"
+              rel="noreferrer"
+              className="group flex items-center gap-2 bg-green-600 hover:bg-green-500 text-white text-sm font-semibold px-5 py-2 rounded-full shadow-md hover:shadow-green-400/30 hover:scale-105 transition-all duration-200"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+              </svg>
+              Student Login
+            </a>
+
+          </div>
 
           {/* 🔹 Mobile Menu Button */}
           <div className="md:hidden">
@@ -87,7 +103,7 @@ const Navbar = () => {
         </div>
 
         {/* 🔹 Mobile Menu */}
-        <ul className="flex flex-col gap-6 px-6 text-lg font-semibold text-gray-700">
+        <ul className="flex flex-col gap-4 px-6 text-lg font-semibold text-gray-700">
 
           {menuItems.map((item) => (
             <Link
@@ -108,6 +124,24 @@ const Navbar = () => {
           ))}
 
         </ul>
+
+        {/* 🔐 Student Login Button — Mobile Drawer */}
+        <div className="px-6 mt-6">
+          <a
+            href="https://learn.creatorchessacademy.com/login"
+            target="_blank"
+            rel="noreferrer"
+            onClick={() => setOpen(false)}
+            className="flex items-center justify-center gap-2 w-full bg-green-600 hover:bg-green-500 text-white text-base font-bold px-5 py-3 rounded-xl shadow-md transition-all duration-200"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+              <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+            </svg>
+            Student Login
+          </a>
+          <p className="text-xs text-gray-400 text-center mt-2">Access your classes &amp; progress</p>
+        </div>
 
       </div>
     </>

@@ -48,17 +48,13 @@ const Footer = () => {
               { label: "Contact", to: "/contact" },
             ].map((item) => (
               <li key={item.label}>
-                <Link
-                  to={item.to}
-                  className="hover:text-green-400 transition"
-                >
+                <Link to={item.to} className="hover:text-green-400 transition">
                   {item.label}
                 </Link>
               </li>
             ))}
           </ul>
 
-          {/* Legal Links — added below Quick Links */}
           <h3 className="text-lg font-semibold text-white mt-7 mb-4">Legal</h3>
           <ul className="space-y-2 text-sm">
             <li>
@@ -93,7 +89,7 @@ const Footer = () => {
             <li>📞 +91 9028447116</li>
             <li>🕒 Open 24 Hours</li>
 
-            {/* Social icon buttons — WhatsApp + Instagram + Facebook */}
+            {/* Social Icons */}
             <li className="flex items-center gap-3 pt-2">
               <a
                 href="https://wa.me/919028447116"
@@ -128,8 +124,22 @@ const Footer = () => {
                 <FacebookIcon />
               </a>
             </li>
+
+            {/* ✅ Student Login Button */}
+            <li className="pt-3">
+              <a
+                href="https://learn.creatorchessacademy.com/login"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-all duration-200 hover:scale-105 shadow-md"
+              >
+                🔐 Student Login
+              </a>
+            </li>
+
           </ul>
         </div>
+
       </div>
 
       {/* Bottom */}
