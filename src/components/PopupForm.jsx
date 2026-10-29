@@ -9,6 +9,7 @@ const PopupForm = ({ close, type: initialType }) => {
   });
   const [errors, setErrors] = useState({});
   const [success, setSuccess] = useState(false);
+  const [whatsappUrl, setWhatsappUrl] = useState("");
 
   const handleChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -34,8 +35,15 @@ const PopupForm = ({ close, type: initialType }) => {
     const label = type === "enroll" ? "New Enrollment Request" : "New Demo Booking";
     const message = `♟ *${label}*\n\n👨 Parent: ${formData.parent_name}\n📞 Phone: ${formData.phone}\n📧 Email: ${formData.email || "—"}\n\n👦 Child: ${formData.kid_name || "—"}\n🎂 Age: ${formData.age || "—"}\n⚧ Gender: ${formData.gender || "—"}\n\n📚 Program: ${formData.program || "—"}\n🏫 School: ${formData.school || "—"}\n📍 Address: ${formData.address || "—"}\n\n📝 Message: ${formData.message || "—"}`;
     const url = `https://wa.me/919028447116?text=${encodeURIComponent(message)}`;
+    setWhatsappUrl(url);
     setSuccess(true);
-    setTimeout(() => { window.open(url, "_blank"); close(); }, 1600);
+
+    // Synchronous open from direct user gesture avoids browser popup blocking
+    try {
+      window.open(url, "_blank", "noopener,noreferrer");
+    } catch {
+      // Browser blocked window.open; user can tap the button on the confirmation screen
+    }
   };
 
   return (
@@ -87,6 +95,7 @@ const PopupForm = ({ close, type: initialType }) => {
             </div>
             <button
               onClick={close}
+              aria-label="Close modal"
               className="flex items-center justify-center"
               style={{
                 background: "rgba(255,255,255,0.1)", border: "none",
@@ -142,18 +151,32 @@ const PopupForm = ({ close, type: initialType }) => {
                 />
               </svg>
             </div>
-            <h3 style={{ fontSize: 20, fontWeight: 500, color: "#1a7a4a", marginBottom: 8 }}>
-              Request Sent!
+            <h3 style={{ fontSize: 20, fontWeight: 600, color: "#1a7a4a", marginBottom: 8 }}>
+              Ready to Send on WhatsApp
             </h3>
-            <p style={{ fontSize: 14, color: "#666", lineHeight: 1.6 }}>
-              <strong>{type === "enroll" ? "Enrollment request" : "Demo booking"}</strong> submitted.<br />
-              Redirecting you to WhatsApp to confirm...
+            <p style={{ fontSize: 14, color: "#666", lineHeight: 1.6, maxWidth: 440, margin: "0 auto 20px" }}>
+              Your <strong>{type === "enroll" ? "Enrollment details" : "Demo booking details"}</strong> have been prepared.
+              Tap the button below to send your message directly to our official academy WhatsApp.
             </p>
-            <div
-              className="mx-auto mt-5"
-              style={{ maxWidth: 200, height: 4, borderRadius: 2, background: "#e5e5e5", overflow: "hidden" }}
-            >
-              <div style={{ height: "100%", background: "#1a7a4a", borderRadius: 2, animation: "fillBar 1.5s linear forwards" }} />
+            <div className="flex flex-col items-center gap-3">
+              <a
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={close}
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-base font-semibold text-white transition-all shadow-md hover:scale-105"
+                style={{ background: "linear-gradient(135deg,#1a7a4a,#1a5c36)" }}
+              >
+                <WhatsAppIcon />
+                Continue to WhatsApp
+              </a>
+              <button
+                type="button"
+                onClick={close}
+                className="text-xs text-gray-500 hover:text-gray-700 hover:underline mt-2"
+              >
+                Close window
+              </button>
             </div>
           </div>
         ) : (

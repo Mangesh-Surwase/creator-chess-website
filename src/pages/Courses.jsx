@@ -455,7 +455,7 @@ function Modal({ course, onClose }) {
           <a
             href="https://wa.me/919028447116"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             className="flex items-center justify-center gap-2 w-full py-3.5 rounded-2xl text-white font-bold text-sm transition-all hover:opacity-90 active:scale-95"
             style={{ background: "#16A34A" }}
           >
@@ -777,7 +777,7 @@ export default function Courses() {
               <a href="#courses" className="inline-flex items-center gap-2 text-sm font-semibold px-6 py-3 rounded-2xl text-white transition-all hover:opacity-90 active:scale-95" style={{ background: "#16A34A" }}>
                 View All Courses →
               </a>
-              <a href="https://wa.me/919028447116" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-sm font-semibold px-6 py-3 rounded-2xl bg-white text-gray-800 border border-gray-200 transition-all hover:bg-gray-50">
+              <a href="https://wa.me/919028447116" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm font-semibold px-6 py-3 rounded-2xl bg-white text-gray-800 border border-gray-200 transition-all hover:bg-gray-50">
                 📞 Free Demo Call
               </a>
             </div>
@@ -947,7 +947,7 @@ export default function Courses() {
                 <a
                   href="https://wa.me/919028447116"
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   className="flex items-center gap-2 text-sm font-semibold px-5 py-2.5 rounded-xl text-white flex-shrink-0 transition-all hover:opacity-90 active:scale-95"
                   style={{ background: "#16A34A" }}
                 >
@@ -985,7 +985,7 @@ export default function Courses() {
                   <a
                     href="https://wa.me/919028447116"
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 bg-white text-green-800 font-bold text-sm px-7 py-3.5 rounded-2xl hover:bg-green-50 transition-colors duration-200 active:scale-95"
                   >
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="#16A34A">

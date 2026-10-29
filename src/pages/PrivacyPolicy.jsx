@@ -1,4 +1,3 @@
-import Navbar from "../components/Navbar";
 //import Footer from "../components/Footer";
 
 const sections = [
@@ -124,13 +123,14 @@ You may request to be removed from communication lists at any time (subject to t
     id: "cookies",
     icon: "🍪",
     title: "Cookies & Website Analytics",
-    content: `Our website may use cookies and similar tracking technologies to enhance your browsing experience. These may include:
+    content: `Our website may use cookies and similar tracking technologies to enhance your browsing experience and analyze site traffic. These include:
 
-• Session cookies to maintain your preferences during a website visit
-• Analytics tools (such as Google Analytics) to understand website traffic and usage patterns
-• No personally identifiable information is transmitted through cookies
+• Session and preference cookies to maintain basic website usability and navigation.
+• Google Tag Manager (GTM Container ID: GTM-KWFP3ZGB) to manage measurement tags and analytics scripts.
+• Meta Pixel (Pixel ID: 1472414544366914) to measure the effectiveness of our educational outreach campaigns and understand user interactions.
+• Standard website analytics to understand visitor volume and popular pages.
 
-You may disable cookies through your browser settings; however, some features of the website may not function properly as a result. By continuing to use our website, you consent to our use of cookies as described in this policy.`,
+You may disable or manage cookies through your web browser settings at any time; however, certain site features may be affected. By continuing to use our website, you consent to our use of these technologies in accordance with this policy.`,
   },
   {
     id: "third-party",
@@ -219,9 +219,10 @@ We encourage you to revisit this page periodically to stay informed about how we
     content: `If you have any questions, concerns, or requests regarding this Privacy Policy or our data handling practices, please contact us:
 
 Creator CHESS Academy
-📱 WhatsApp: Available on our official academy number (shared at enrollment)
-📧 Email: Reachable through the contact form on our website
-🌐 Website: Refer to your enrollment documentation for official web address
+📍 Location: Ravet, Pimpri-Chinchwad, Maharashtra 412101
+📱 WhatsApp / Phone: +91 9028447116
+📧 Email: creatorchessacademy@gmail.com
+🌐 Official Website: https://creatorchessacademy.com/
 
 We are committed to addressing your privacy concerns promptly and transparently. Your trust matters deeply to us, and we will always act in your best interest.`,
   },
@@ -230,7 +231,6 @@ We are committed to addressing your privacy concerns promptly and transparently.
 export default function PrivacyPolicy() {
   return (
     <div className="min-h-screen bg-gray-50">
-      <Navbar />
 
       {/* ── Hero ── */}
       <section className="pt-[110px] relative overflow-hidden bg-gradient-to-br from-[#0a2218] via-[#0f3d25] to-[#14532d] min-h-[340px] flex items-center">

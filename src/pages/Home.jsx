@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import videoBg from "../assets/chess-bg.mp4";
 import academyImg from "../assets/academy.png";
 
-import Navbar from "../components/Navbar";
 import PopupForm from "../components/PopupForm";
 
 const Home = () => {
@@ -77,7 +76,7 @@ const Home = () => {
               <a
                 href="https://learn.creatorchessacademy.com/login"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="bg-amber-500 hover:bg-amber-600 text-white px-6 py-3 rounded-xl font-semibold shadow-lg hover:scale-105 transition-all duration-200 flex items-center gap-2"
               >
                 <span>🔐</span> Student Login
@@ -86,7 +85,7 @@ const Home = () => {
               <a
                 href="https://wa.me/919028447116"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="bg-[#25D366] hover:bg-[#1ebe5d] text-white px-6 py-3 rounded-xl font-semibold shadow-lg hover:scale-105 transition-all duration-200 flex items-center gap-2"
               >
                 <span>💬</span> WhatsApp Now
@@ -377,15 +376,13 @@ const Home = () => {
           <a
             href="https://wa.me/919028447116"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             className="bg-green-600 border-2 border-white/30 text-white px-8 py-3 rounded-xl font-bold shadow-lg hover:scale-105 hover:bg-green-500 transition-all duration-200"
           >
             💬 WhatsApp Us
           </a>
         </div>
       </div>
-
-      <Navbar />
 
       {showForm && (
         <PopupForm

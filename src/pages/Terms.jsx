@@ -1,4 +1,3 @@
-import Navbar from "../components/Navbar";
 //import Footer from "../components/Footer";
 
 const sections = [
@@ -157,9 +156,10 @@ Continued use of our services after any changes constitutes your acceptance of t
     content: `If you have any questions, concerns, or feedback regarding these Terms & Conditions, please reach out to us:
 
 Creator CHESS Academy
-📱 WhatsApp: Available on our official academy number (shared at enrollment)
-📧 Email: Contact us through the form on our website
-🌐 Website: As listed in your enrollment documents
+📍 Location: Ravet, Pimpri-Chinchwad, Maharashtra 412101
+📱 WhatsApp / Phone: +91 9028447116
+📧 Email: creatorchessacademy@gmail.com
+🌐 Official Website: https://creatorchessacademy.com/
 
 We are committed to resolving any queries promptly and ensuring your experience with Creator CHESS Academy is positive and enriching.`,
   },
@@ -168,7 +168,6 @@ We are committed to resolving any queries promptly and ensuring your experience 
 export default function Terms() {
   return (
     <div className="min-h-screen bg-gray-50 font-sans">
-      <Navbar />
 
       {/* Hero Section */}
       <section className="pt-[110px] relative overflow-hidden bg-gradient-to-br from-[#0d2b1f] via-[#14532d] to-[#0f3d25] min-h-[340px] flex items-center">
