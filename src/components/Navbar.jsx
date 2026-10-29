@@ -58,7 +58,7 @@ const Navbar = () => {
             <a
               href="https://learn.creatorchessacademy.com/login"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="group flex items-center gap-2 bg-green-600 hover:bg-green-500 text-white text-sm font-semibold px-5 py-2 rounded-full shadow-md hover:shadow-green-400/30 hover:scale-105 transition-all duration-200"
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
@@ -72,7 +72,7 @@ const Navbar = () => {
 
           {/* 🔹 Mobile Menu Button */}
           <div className="md:hidden">
-            <button onClick={() => setOpen(true)}>
+            <button onClick={() => setOpen(true)} aria-label="Open navigation menu">
               <Menu size={30} />
             </button>
           </div>
@@ -97,7 +97,7 @@ const Navbar = () => {
 
         {/* Close */}
         <div className="flex justify-end p-4">
-          <button onClick={() => setOpen(false)}>
+          <button onClick={() => setOpen(false)} aria-label="Close navigation menu">
             <X size={30} />
           </button>
         </div>
@@ -130,7 +130,7 @@ const Navbar = () => {
           <a
             href="https://learn.creatorchessacademy.com/login"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             onClick={() => setOpen(false)}
             className="flex items-center justify-center gap-2 w-full bg-green-600 hover:bg-green-500 text-white text-base font-bold px-5 py-3 rounded-xl shadow-md transition-all duration-200"
           >
